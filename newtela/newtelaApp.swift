@@ -6,12 +6,11 @@
 //
 
 import SwiftUI
-
 @main
 struct newtelaApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+        ContentView()
         }
     }
 }
