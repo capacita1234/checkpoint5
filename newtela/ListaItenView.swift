@@ -22,10 +22,10 @@ struct ListaItemView: View {
                 .cornerRadius(3)
             
             HStack(spacing: 12) {
-                Image(systemName: icone)
-                    .font(.title3)
+                Image(icone)
+                    .resizable()
                     .frame(width: 30, height: 30)
-                
+    
                 VStack(alignment: .leading, spacing: 2) {
                     Text(titulo)
                         .font(.headline)
