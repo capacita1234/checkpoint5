@@ -9,9 +9,9 @@ import SwiftUI
 
 struct ListaComprasView: View {
     @State private var listas: [Lista] = [
-        Lista(titulo: "Ferramentas", descricao: "Itens para conserto", cor: .red, icone: "orange"),
-        Lista(titulo: "Frutas", descricao: "Frutas do mercado", cor: .yellow, icone: "orange"),
-        Lista(titulo: "Mercado", descricao: "Compras semanais", cor: .green, icone: "orange")
+        Lista(titulo: "Ferramentas", descricao: "Itens para conserto", cor: .red, icone: "hammer"),
+        Lista(titulo: "Cartões", descricao: "Cartões de Crédito", cor: .yellow, icone: "creditcard"),
+        Lista(titulo: "Mercado", descricao: "Compras semanais", cor: .green, icone: "cart")
     ]
     
     var body: some View {

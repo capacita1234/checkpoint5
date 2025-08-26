@@ -22,7 +22,7 @@ struct ListaItemView: View {
                 .cornerRadius(3)
             
             HStack(spacing: 12) {
-                Image(icone)
+                Image(systemName:icone)
                     .resizable()
                     .frame(width: 30, height: 30)
     
