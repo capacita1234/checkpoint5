@@ -6,11 +6,14 @@
 //
 
 import SwiftUI
+import SwiftData
+
 @main
 struct newtelaApp: App {
     var body: some Scene {
         WindowGroup {
         ContentView()
+                .modelContainer(for: [Produto.self, Lista.self])
         }
     }
 }

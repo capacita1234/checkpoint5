@@ -6,14 +6,14 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct ListaComprasView: View {
-    @State private var listas: [Lista] = [
-        Lista(titulo: "Ferramentas", descricao: "Itens para conserto", cor: .red, icone: "hammer"),
-        Lista(titulo: "Cartões", descricao: "Cartões de Crédito", cor: .yellow, icone: "creditcard"),
-        Lista(titulo: "Mercado", descricao: "Compras semanais", cor: .green, icone: "cart")
-    ]
-    
+    @Environment(\.modelContext) var context
+    @ObservedObject var listaViewModel = ListViewModel.shared
+    @State private var mostrarsheetCriarLista: Bool = false
+    @State private var textoPesquisa: String = ""
+    @Environment(\.dismiss) var dismiss
     var body: some View {
         NavigationStack {
             VStack(spacing: 16) {
@@ -38,9 +38,9 @@ struct ListaComprasView: View {
                 
                 ScrollView {
                     VStack(spacing: 12) {
-                        ForEach(listas) { lista in
-                            ListaItemView(cor: lista.cor, icone: lista.icone, titulo: lista.titulo, descricao: lista.descricao)
-                        }
+                     /*   ForEach(listaViewModel.listas) { lista in
+                            ListaItemView(cor: lista.cor.swiftUIcolor, icone: lista.icone, titulo: lista.titulo, descricao: lista.descricao)
+                        }*/
                     }
                     .padding(.horizontal)
                     .padding(.top, 5)
@@ -48,7 +48,6 @@ struct ListaComprasView: View {
                 
                 
                 NavigationLink {
-                    CriarLista(listas: $listas)
                 } label: {
                     Text("Criar Lista")
                         .font(.headline)
@@ -60,7 +59,24 @@ struct ListaComprasView: View {
                 }
                 .padding(.horizontal)
                 .padding(.bottom, 5)
+                
+                Button(action: {
+                   // listaViewModel.CriarLista(titulo:titulo, descricao: descricao, icone: "newOrange", cor:corSelecionada)
+                    dismiss()
+                })  {
+                    Text("Salvar Lista")
+                        .foregroundColor(.white)
+                        .frame(maxWidth: .infinity)
+                        .padding()
+                        .background(Color.black)
+                        .cornerRadius(12)
+                }
+                .padding(.horizontal)
             }
         }
+        .onAppear{
+            listaViewModel.buscarListas(context: context)
+        }
     }
+        
 }

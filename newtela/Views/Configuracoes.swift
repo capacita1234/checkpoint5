@@ -13,8 +13,8 @@ struct Configuracoes: View {
     @AppStorage("emailUsuario") private var emailUsuario = ""
     
     @State private var mostrarImagePicker = false
-    @State private var fotoPerfil: UIImage? = nil
-    
+    @State private var fotoPerfil: UIImage?
+
     var body: some View {
         NavigationStack {
             Form {

@@ -14,7 +14,7 @@ struct ContentView: View {
                 ListaComprasView()
             }
             Tab("Produtos", systemImage:"bag"){
-                ProdutosView()
+                Configuracoes()
             }
             Tab("configurações", systemImage:"gearshape"){
                Configuracoes()

@@ -22,7 +22,7 @@ struct AdicionarProdutoView: View {
         NavigationStack {
             VStack(spacing: 16) {
                 
-                PhotosPicker(selection: $imagemSelecionada, matching: .images) {
+               /* PhotosPicker(selection: $imagemSelecionada, matching: .images) {
                     VStack {
                         if let imagem = imagem {
                             Image(uiImage: imagem)
@@ -43,15 +43,15 @@ struct AdicionarProdutoView: View {
                             .cornerRadius(12)
                         }
                     }
-                }
-                .onChange(of: imagemSelecionada) { newItem in
+                }*/
+               /* .onChange(of: imagemSelecionada) { newItem in
                     Task {
                         if let data = try? await newItem?.loadTransferable(type: Data.self),
                            let uiImage = UIImage(data: data) {
                             imagem = uiImage
                         }
                     }
-                }
+                }*/
                 
                 TextField("Título", text: $titulo)
                     .padding()
@@ -70,14 +70,14 @@ struct AdicionarProdutoView: View {
                     .cornerRadius(8)
                 
                 Button {
-                    let novoProduto = Produto(
+                  /*  let novoProduto = Produto(
                         titulo: titulo,
                         preco: preco,
                         descricao: descricao,
                         imagem: imagem
                     )
                     produtos.append(novoProduto)
-                    dismiss()
+                    dismiss()*/
                 } label: {
                     Text("Adicionar")
                         .font(.headline)
